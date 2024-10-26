@@ -49,7 +49,28 @@ export default function Register() {
 
   return (
     <>
-    <Toaster/>
+        <Toaster
+  toastOptions={{
+    success: {
+      iconTheme: {
+        primary: 'rgb(11, 218, 81)',
+        secondary: 'black',
+      },
+      style: {
+        background: 'rgb(11, 218, 81)',
+      },
+    },
+    error: {
+        iconTheme: {
+            primary: '#ff0033',
+            secondary: 'black',
+          },
+      style: {
+        background: '#ff0033',
+      },
+    },
+  }}
+/>
     
     <div className={`container min-h-screen flex bg-gradient-to-r from-gray-950 via-gray-700 to-gray-950 overflow-hidden ${isGlobeVisible ? 'h-screen' : 'items-center justify-center'}`}>
       {/* Left Side: Registration Form */}
