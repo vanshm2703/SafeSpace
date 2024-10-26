@@ -145,11 +145,11 @@ const AudioRecorder = () => {
     return (<>
     
     <nav className="flex justify-between items-center p-6 bg-black text-white">
-          <div className="text-xl font-bold">Women Safety</div>
+          <a href={'/home'} className="text-xl font-bold">SafeSpace</a>
             <ul className="flex space-x-6">
             <li><a href="/aiTry" className="hover:text-gray-400">Law</a></li>
               <li><a href="/policyMail" className="hover:text-gray-400">Policy</a></li>
-              <li><a href="/Location" className="bg-red-500 p-2 border rounded-md hover:text-red-900">SOS</a></li>
+              <li><a href="/voiceHelp" className="bg-red-500 p-2 border rounded-md hover:text-red-900">SOS</a></li>
             </ul>
             <div className="flex items-center">
               {log ? (
