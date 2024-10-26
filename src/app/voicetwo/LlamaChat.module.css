@@ -1,0 +1,75 @@
+/* components/LlamaChat.module.css */
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  
+  .button {
+    padding: 0.75rem 1.5rem;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .button:hover {
+    background-color: #0051b3;
+  }
+  
+  .button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .error {
+    color: #dc2626;
+    padding: 1rem;
+    background-color: #fee2e2;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  
+  .responseContainer {
+    margin-top: 2rem;
+  }
+  
+  .responseTitle {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .response {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9fafb;
+    font-size: 1rem;
+    resize: vertical;
+  }
