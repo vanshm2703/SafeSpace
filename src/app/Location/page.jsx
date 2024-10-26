@@ -147,7 +147,7 @@ const LocationFinder = () => {
       {/* Main Content */}
       <div className="relative z-10 text-center text-white space-y-8 p-6 max-w-4xl w-full">
         <nav className="flex justify-between items-center p-6 bg-black rounded-lg">
-          <a href={'/home'} className="text-xl font-bold">Women Safety</a>
+          <a href={'/home'} className="text-xl font-bold">SafeSpace</a>
           <ul className="flex space-x-6">
             <li><a href="/aiTry" className="hover:text-gray-400">Law</a></li>
             <li><a href="/policyMail" className="hover:text-gray-400">Policy</a></li>
