@@ -48,6 +48,22 @@ const PolicyMail = () => {
       toast.error("Logout Error");
     }
   };
+  const forgotPass = async (e:any) => {
+    try {
+        e.preventDefault();
+        const emailData = {
+            username: "Hiii", // Assuming userInput is the username or email
+            response: response,   // This is the content you want to send in the email
+        };
+        await axios.post("/api/users/nodemail", emailData);
+        toast.success("Email Sent");
+    } catch (error:any) {
+        console.log("Forgot Pass Error", error);
+        toast.error("Forgot pass Error: " + error.message);
+    }
+};
+
+
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -80,14 +96,35 @@ const PolicyMail = () => {
   };
 
   return (<>
-  
+  <Toaster
+  toastOptions={{
+    success: {
+      iconTheme: {
+        primary: 'rgb(11, 218, 81)',
+        secondary: 'black',
+      },
+      style: {
+        background: 'rgb(11, 218, 81)',
+      },
+    },
+    error: {
+        iconTheme: {
+            primary: '#ff0033',
+            secondary: 'black',
+          },
+      style: {
+        background: '#ff0033',
+      },
+    },
+  }}
+/>
   
   <nav className="flex justify-between items-center p-6 bg-black text-white">
-          <a href={'/home'} className="text-xl font-bold">Women Safety</a>
+          <a href={'/home'} className="text-xl font-bold">SafeSpace</a>
             <ul className="flex space-x-6">
             <li><a href="/aiTry" className="hover:text-gray-400">Law</a></li>
               <li><a href="/policyMail" className="hover:text-gray-400">Policy</a></li>
-              <li><a href="/voiceHelp" className="bg-red-500 p-2 border rounded-md hover:text-red-900">SOS</a></li>
+              <li><a href="/Location" className="bg-red-500 p-2 border rounded-md hover:text-red-900">SOS</a></li>
             </ul>
             <div className="flex items-center">
               {log ? (
@@ -175,7 +212,7 @@ const PolicyMail = () => {
               </div>
               
             </div>
-            <button
+            <button onClick={forgotPass}
             type="submit"
             disabled={loading || !userInput.trim()}
             className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg disabled:bg-gray-600 disabled:cursor-not-allowed transition"
