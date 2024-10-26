@@ -1,7 +1,10 @@
 // components/GroqChat.jsx
 'use client';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 const GroqChat = () => {
   const [userInput, setUserInput] = useState('');
@@ -9,6 +12,43 @@ const GroqChat = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const chatBoxRef = useRef(null);
+
+  const router = useRouter();
+  const [openIndex, setOpenIndex] = useState(null);
+  const [log, setLog] = useState(true);
+  const [showLogoutMenu, setShowLogoutMenu] = useState(false);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+  const toggleAccordion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  function buttonHandle(){
+    router.push('/login');
+  }
+
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('loggin');
+    setLog(storedUser ? true : false);
+  }, []);
+
+  const handleProfileClick = () => {
+    setShowLogoutMenu(!showLogoutMenu);
+  };
+
+  const handleLogout = async (e) => {
+    try {
+      await axios.get('/api/users/logout');
+      localStorage.removeItem('loggin');
+      setLog(false);
+      setShowLogoutMenu(false);
+      router.push("/login");
+    } catch (error) {
+      console.log("Logout Error: ", error.message);
+      toast.error("Logout Error");
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +80,45 @@ const GroqChat = () => {
     }
   };
 
-  return (
+  return (<>
+  
+  <nav className="flex justify-between items-center p-6  bg-black text-white">
+          <a href={'/home'} className="text-xl font-bold">SafeSpace</a>
+            <ul className="flex space-x-6">
+            <li><a href="/aiTry" className="hover:text-gray-400">Law</a></li>
+              <li><a href="/policyMail" className="hover:text-gray-400">Policy</a></li>
+              <li><a href="/Location" className="bg-red-500 p-2 border rounded-md hover:text-red-900">SOS</a></li>
+            </ul>
+            <div className="flex items-center">
+              {log ? (
+                <>
+                  <span className="mr-4">Welcome</span>
+                  <div style={{ cursor: "pointer" }} onClick={handleProfileClick} className='bg-gray-700 flex justify-center items-center rounded-full h-12 w-12'>
+                    <AccountCircleOutlinedIcon className="scale-150" />
+                  </div>
+                  {showLogoutMenu && (
+                    <div className="absolute bg-black border overflow-hidden border-gray-300 rounded-md mt-2">
+                      <button onClick={handleLogout} className="px-3 py-2 text-white hover:bg-gray-800">
+                        Logout
+                      </button>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <>
+                  {/* <button */}
+                    {/* onClick={() => setIsSheetOpen(true)}
+                    className="px-4 py-2 bg-white text-black rounded-md" */}
+                  {/* > */}
+                    <button>Start</button>
+                    
+                  {/* </button> */}
+                </>
+              )}
+            </div>
+          </nav>
+          
+          
     <div className="relative bg-gray-900 min-h-screen flex items-center justify-center">
       {/* Blurred Colored Shapes */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
@@ -100,6 +178,7 @@ const GroqChat = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
