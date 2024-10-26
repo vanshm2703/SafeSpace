@@ -157,7 +157,7 @@ export default function Home() {
 
       <div className="relative z-10">
         <nav className="flex justify-between items-center p-6 text-white">
-          <div className="text-xl font-bold">Women Safety</div>
+          <div className="text-xl font-bold">SafeSpace</div>
             <ul className="flex space-x-6">
               <li><a href="#features" className="hover:text-gray-400">Features</a></li>
               <li><a href="#how" className="hover:text-gray-400">How It Works</a></li>
