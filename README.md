@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SafeSpace
 
-## Getting Started
+SafeSpace is a web application dedicated to enhancing women's safety by providing immediate assistance and increasing awareness of legal rights. The platform offers tools to quickly alert trusted contacts in emergencies, generate reports for authorities, and access pertinent legal information.
 
-First, run the development server:
+## Video Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+https://github.com/user-attachments/assets/bb2b2580-429b-46ca-82f6-1e72389b14b6
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+1. **Emergency Alert System**: A user-activated button that, when pressed, sends the user's real-time location to pre-designated emergency contacts.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Policy Generator**: An AI-driven tool that crafts detailed reports based on user-inputted descriptions of incidents, which can then be emailed directly to relevant government authorities.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Law Finder**: A search feature allowing users to input descriptions of offenses and retrieve corresponding legal statutes, aiding in understanding and empowerment.
 
-## Deploy on Vercel
+## Technology Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Frontend**: HTML5, CSS3, JavaScript, React.js
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **APIs**: Google Maps API for location services
+- **AI Tools**: Natural Language Processing (NLP) libraries for the Policy Generator
+- **Version Control**: Git and GitHub
