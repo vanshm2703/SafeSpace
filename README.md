@@ -1,4 +1,4 @@
-# SafeSpace
+# Safe Space
 
 SafeSpace is a web application dedicated to enhancing women's safety by providing immediate assistance and increasing awareness of legal rights. The platform offers tools to quickly alert trusted contacts in emergencies, generate reports for authorities, and access pertinent legal information.
 
